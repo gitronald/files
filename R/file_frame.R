@@ -11,8 +11,8 @@
 file_frame = function(dir = "."){
 
   fileDetails = dfiles(dir)
-  tFiles = row.names(x[which(!fileDetails$isdir), ])  # Top Level Files
-  dirNames = row.names(x[which(fileDetails$isdir), ]) # Top Level Dirs
+  tFiles = row.names(fileDetails[which(!fileDetails$isdir), ])  # Top Level Files
+  dirNames = row.names(fileDetails[which(fileDetails$isdir), ]) # Top Level Dirs
 
   dirList = list()
   dirList[[1]] = tFiles
@@ -20,8 +20,8 @@ file_frame = function(dir = "."){
     dirList[[i]] = list.files(i)
   }
 
-  dirList = lapply(dirList, `length<-`, max(lengths(x))) # Set max length and fill
-  file.frame = matrix(unlist(dirList), ncol = max(lengths(lfiles)), byrow = T)
+  dirList = lapply(dirList, `length<-`, max(lengths(dirList))) # Set max length and fill
+  file.frame = matrix(unlist(dirList), ncol = max(lengths(dirList)), byrow = T)
   file.frame = apply(file.frame, 2, function(x) {           # Remove NAs
     x = ifelse(is.na(x), " ", x)
   })
