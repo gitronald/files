@@ -3,14 +3,15 @@
 #' @param dir character, the directory in which to view files
 #'
 #' @return a data.frame of the directories and files names in presentation format
+#'
+#' @importFrom stats setNames
 #' @export
-#'
 #' @examples
-#' file_frame()
+#' lf()
 #'
-file_frame = function(dir = "."){
+lf = function(dir = "."){
 
-  fileDetails = dfiles(dir)
+  fileDetails = df(dir)
   tFiles = row.names(fileDetails[which(!fileDetails$isdir), ])  # Top Level Files
   dirNames = row.names(fileDetails[which(fileDetails$isdir), ]) # Top Level Dirs
 
