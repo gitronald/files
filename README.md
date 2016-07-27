@@ -17,7 +17,6 @@ install.packages("files")
 ```
 # Install Github version:
 devtools::install_github("gitronald/files")
-
 ```
 
 ### lf - List Files
@@ -43,7 +42,7 @@ C:/Users/rer/Documents/Rprojects/dtables
 11        README.md 
 ```
 
-Compare to Windows point and click view of the same directory:
+* Compare to Windows point and click view of the same directory:
 
 ![](img/directory.png)
 
