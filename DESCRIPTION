@@ -1,8 +1,9 @@
 Package: files
-Title: Enhanced file navigation from the R console
+Title: Effective File Navigation from the R Console
 Version: 0.0.1
 Authors@R: person(c("Ronald", "E."), "Robertson",, "robertson.ron@husky.neu.edu", c("cre", "aut"))
-Description: Functions that enable effective and informative navigation from the R console.
+Description: Functions for printing the contents of a folder as columns in a ragged-bottom data.frame and for
+  viewing the details (size, time created, time modified, etc.) of a folder's top level contents.
 Depends:
     R (>= 3.3.1)
 License: GPL-3

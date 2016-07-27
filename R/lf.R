@@ -1,19 +1,29 @@
 #' Enhanced Working Directory View
 #'
 #' @param dir character, the directory in which to view files
+#' @param hidden.files logical, include hidden files
+#' @param hidden.dirs logical, include hidden directories
+#' @param ... additional arguments to pass to \code{list.files} which this
+#'   function is built around
 #'
-#' @return a data.frame of the directories and files names in presentation format
+#' @return a data.frame of the directories and files names in presentation
+#'   format
 #'
 #' @importFrom stats setNames
 #' @export
 #' @examples
 #' lf()
 #'
-lf = function(dir = "."){
+lf = function(dir = ".", hidden.files = TRUE, hidden.dirs = FALSE, ...){
 
-  fileDetails = df(dir)
+  fileDetails = df(dir, all.files = hidden.files, ...)
   tFiles = row.names(fileDetails[which(!fileDetails$isdir), ])  # Top Level Files
   dirNames = row.names(fileDetails[which(fileDetails$isdir), ]) # Top Level Dirs
+
+  if(!hidden.dirs){
+    hiddenDirNames = dirNames[grepl("^\\.", dirNames)]
+    dirNames = dirNames[!dirNames %in% hiddenDirNames]
+  }
 
   dirList = list()
   dirList[[1]] = tFiles

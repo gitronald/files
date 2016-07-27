@@ -4,10 +4,14 @@
 \alias{df}
 \title{Describe Files}
 \usage{
-df(dir = ".")
+df(dir = ".", all.files = TRUE, ...)
 }
 \arguments{
 \item{dir}{the directory containing the files to describe}
+
+\item{all.files}{logical, include hidden files and folders}
+
+\item{...}{additional arguments to pass to \code{list.files}}
 }
 \value{
 A data.frame containing file information for all files in \code{dir}

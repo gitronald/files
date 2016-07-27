@@ -4,13 +4,21 @@
 \alias{lf}
 \title{Enhanced Working Directory View}
 \usage{
-lf(dir = ".")
+lf(dir = ".", hidden.files = TRUE, hidden.dirs = FALSE, ...)
 }
 \arguments{
 \item{dir}{character, the directory in which to view files}
+
+\item{hidden.files}{logical, include hidden files}
+
+\item{hidden.dirs}{logical, include hidden directories}
+
+\item{...}{additional arguments to pass to \code{list.files} which this
+function is built around}
 }
 \value{
-a data.frame of the directories and files names in presentation format
+a data.frame of the directories and files names in presentation
+  format
 }
 \description{
 Enhanced Working Directory View
