@@ -21,7 +21,7 @@ lf = function(dir = ".", hidden.files = TRUE, hidden.dirs = FALSE, ...){
   dirNames = row.names(fileDetails[which(fileDetails$isdir), ]) # Top Level Dirs
 
   if(!hidden.dirs){
-    hiddenDirNames = dirNames[grepl("^\\.", dirNames)]
+    hiddenDirNames = dirNames[grepl("^\\./\\.", dirNames)]
     dirNames = dirNames[!dirNames %in% hiddenDirNames]
   }
 
