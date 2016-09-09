@@ -12,7 +12,7 @@
 #' df()
 #'
 df = function(dir = ".", all.files = TRUE, ...){
-  files = list.files(dir, all.files = all.files, no.. = TRUE, ...)
+  files = list.files(dir, all.files = all.files, no.. = TRUE, full.names = TRUE, ...)
   files = file.info(files)
   return(files)
 }
